@@ -10,5 +10,7 @@
 
     
     <mapping class="entidades.Usuario"/>
+    <mapping class="entidades.Motos"/>
+    <mapping class="entidades.Cliente"/>
   </session-factory>
 </hibernate-configuration>
