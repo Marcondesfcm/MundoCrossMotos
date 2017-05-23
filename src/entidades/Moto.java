@@ -29,12 +29,6 @@ public class Moto {
      
       @Column(length = 15, nullable = false)
     private int cc;
-      
-       
-    public Long getId() {
-        return id;
-        
-    }
 
     public String getModelo() {
         return modelo;
@@ -59,18 +53,16 @@ public class Moto {
     public void setCc(int cc) {
         this.cc = cc;
     }
-
-    public void setModelo() {
-        this.modelo=modelo;
+      
+    public Moto() {
     }
 
-    public void setMarca() {
-        this.marca=marca;
+    public Moto(String modelo, String marca, int cc) {
+        this.modelo = modelo;
+        this.marca = marca;
+        this.cc = cc;
     }
-
-    public void setCc(String toString) {
-        this.cc=cc;
-        
-    }
+    
+    
     
 }

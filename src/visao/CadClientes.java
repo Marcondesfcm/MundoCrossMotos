@@ -37,7 +37,7 @@ public class CadClientes extends javax.swing.JInternalFrame {
         jTextField2 = new javax.swing.JTextField();
         btButonSalvarCli = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btListarCli = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         tfNomeCli = new javax.swing.JTextField();
@@ -85,9 +85,14 @@ public class CadClientes extends javax.swing.JInternalFrame {
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton2.setText("Editar");
 
-        jButton3.setBackground(new java.awt.Color(204, 204, 204));
-        jButton3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton3.setText("Listar");
+        btListarCli.setBackground(new java.awt.Color(204, 204, 204));
+        btListarCli.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btListarCli.setText("Listar");
+        btListarCli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btListarCliActionPerformed(evt);
+            }
+        });
 
         jButton4.setBackground(new java.awt.Color(204, 204, 204));
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -137,7 +142,7 @@ public class CadClientes extends javax.swing.JInternalFrame {
                         .addGap(60, 60, 60)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(82, 82, 82)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btListarCli, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(64, 64, 64)
                         .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
@@ -230,7 +235,7 @@ public class CadClientes extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btButonSalvarCli, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btListarCli, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(68, 68, 68))
         );
@@ -268,6 +273,10 @@ public class CadClientes extends javax.swing.JInternalFrame {
         JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso");
     }//GEN-LAST:event_btButonSalvarCliActionPerformed
 
+    private void btListarCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btListarCliActionPerformed
+                // TODO add your handling code here:
+    }//GEN-LAST:event_btListarCliActionPerformed
+
          private void tfNomeCliActionPerformed(java.awt.event.ActionEvent evt) {                                     
         // TODO add your handling code here:
     }                                    
@@ -286,9 +295,9 @@ public class CadClientes extends javax.swing.JInternalFrame {
         tfNomeCli.setText("");}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btButonSalvarCli;
+    private javax.swing.JButton btListarCli;
     private java.awt.Choice choice1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JLabel jLabel1;

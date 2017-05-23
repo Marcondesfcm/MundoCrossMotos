@@ -14,13 +14,16 @@ import util.HibernateUtil;
  *
  * @author Lab1
  */
-public abstract class GenericDAO<T>
-        implements DAO<T> {
+public class GenericDAO<T> implements DAO<T>{
 
-    private Session sessao;
+    protected Session sessao;
     private Transaction transacao;
+    public Class classe;
+    
+       public GenericDAO(Class classe) {
+           this.classe = classe;
+    }
 
-    @Override
     public boolean salvar(T t) {
         try {
             this.sessao = HibernateUtil.getSessionFactory().openSession();
@@ -38,7 +41,6 @@ public abstract class GenericDAO<T>
 
     }
 
-    @Override
     public boolean editar(T t) {
 
         try {
@@ -57,7 +59,6 @@ public abstract class GenericDAO<T>
 
     }
 
-    @Override
     public boolean deletar(T t) {
         try {
             this.sessao = HibernateUtil.getSessionFactory().openSession();
@@ -76,6 +77,21 @@ public abstract class GenericDAO<T>
 
     @Override
     public List<T> listar() {
-        return null;
+        List<T> lista = null;
+        try {
+            this.sessao = HibernateUtil.getSessionFactory().openSession();
+            this.transacao = sessao.beginTransaction();
+            lista = sessao.createCriteria(classe).list();
+        } catch (Exception e) {
+            System.out.println("Erro na lista " + e);
+        }
+        finally {
+            this.sessao.close();
+        }
+        return lista;
     }
-      }
+
+ 
+    
+
+    }

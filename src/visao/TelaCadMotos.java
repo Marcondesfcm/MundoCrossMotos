@@ -214,7 +214,7 @@ public class TelaCadMotos extends javax.swing.JInternalFrame {
         Moto moto = new Moto();
         moto.setModelo(tfModelo.getText().toString());
         moto.setMarca(tfMarca.getText().toString());
-        moto.setCc(tfCc.getText().toString());
+        moto.setCc(Integer.parseInt(tfCc.getText()));
         
         MotoDAO MotoDAO = new MotoDAO();
         MotoDAO.salvar(moto);
