@@ -1,26 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package visao;
 
 import java.awt.Color;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Marcondes
- */
 public class TelaPrincipal extends javax.swing.JFrame {
 
-    /**
-     * Creates new form TelaPrincipal
-     */
     public TelaPrincipal() {
         initComponents();
         getContentPane().setBackground(Color.WHITE);
-        
+
     }
 
     /**
@@ -42,6 +31,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         menCadMoto = new javax.swing.JMenuItem();
         menCadUser = new javax.swing.JMenuItem();
         menCadCli = new javax.swing.JMenuItem();
+        menLis = new javax.swing.JMenu();
+        menLisMoto = new javax.swing.JMenuItem();
+        menLisUsuario = new javax.swing.JMenuItem();
+        menLisCliente = new javax.swing.JMenuItem();
         menRel = new javax.swing.JMenu();
         menRelMensal = new javax.swing.JMenuItem();
         menAju = new javax.swing.JMenu();
@@ -69,16 +62,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
         );
         DesktopLayout.setVerticalGroup(
             DesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 540, Short.MAX_VALUE)
+            .addGap(0, 580, Short.MAX_VALUE)
         );
 
         getContentPane().add(Desktop);
-        Desktop.setBounds(0, 0, 720, 540);
+        Desktop.setBounds(0, 0, 720, 580);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/aaaaaaaaaaaaaaaaaa.png"))); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(730, 360, 180, 180);
+        jLabel1.setBounds(730, 390, 180, 180);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/sportsprologo.jpg"))); // NOI18N
         getContentPane().add(jLabel2);
@@ -123,6 +116,40 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         Menu.add(menCad);
 
+        menLis.setText("Listar");
+
+        menLisMoto.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_MASK));
+        menLisMoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/CadIconMotos.png"))); // NOI18N
+        menLisMoto.setText("Listar Motos");
+        menLisMoto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menLisMotoActionPerformed(evt);
+            }
+        });
+        menLis.add(menLisMoto);
+
+        menLisUsuario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.ALT_MASK));
+        menLisUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/CadUser.png"))); // NOI18N
+        menLisUsuario.setText("Listar Usuários");
+        menLisUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menLisUsuarioActionPerformed(evt);
+            }
+        });
+        menLis.add(menLisUsuario);
+
+        menLisCliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.ALT_MASK));
+        menLisCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/CadCli.png"))); // NOI18N
+        menLisCliente.setText("Listar Clientes");
+        menLisCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menLisClienteActionPerformed(evt);
+            }
+        });
+        menLis.add(menLisCliente);
+
+        Menu.add(menLis);
+
         menRel.setText("Relatório");
 
         menRelMensal.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.ALT_MASK));
@@ -159,7 +186,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         setJMenuBar(Menu);
 
-        setSize(new java.awt.Dimension(928, 589));
+        setSize(new java.awt.Dimension(954, 626));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -167,43 +194,43 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // Chamando a Tela Sobre:
         TelaAjuda ajuda = new TelaAjuda();
         ajuda.setVisible(true);
-        
-        
+
+
     }//GEN-LAST:event_menSobreActionPerformed
 
     private void menSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menSairActionPerformed
         // Aqui será exibido uma caixa de diálogo
         //Criar uma variável do tipo inteiro
-        int sair = JOptionPane.showConfirmDialog(null, "Deseja encerrar a sessão?", "Atenção",JOptionPane.YES_NO_OPTION);
-        if(sair == JOptionPane.YES_OPTION){
+        int sair = JOptionPane.showConfirmDialog(null, "Deseja encerrar a sessão?", "Atenção", JOptionPane.YES_NO_OPTION);
+        if (sair == JOptionPane.YES_OPTION) {
             System.exit(0);
-            
+
         }
     }//GEN-LAST:event_menSairActionPerformed
 
     private void menCadCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menCadCliActionPerformed
-        // O código abaixo chama a tela de cadastro de usuário dentro do Desktop Pane
-        CadClientes clientes = new CadClientes();
-        clientes.setVisible(true);
-        Desktop.add(clientes);
-        
-        
-        
+        new CadastrarClientes().setVisible(true);
     }//GEN-LAST:event_menCadCliActionPerformed
 
     private void menCadMotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menCadMotoActionPerformed
-        // O código abaixo chama a tela de cadastro de Motos dentro do Destop Pane
-        TelaCadMotos motos = new TelaCadMotos();
-        motos.setVisible(true);
-        Desktop.add(motos);
+        new CadastrarMotos().setVisible(true);
     }//GEN-LAST:event_menCadMotoActionPerformed
 
     private void menCadUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menCadUserActionPerformed
-        // TODO add your handling code here:
-        TelaUsuario usuarios = new TelaUsuario();
-        usuarios.setVisible(true);
-        Desktop.add(usuarios);
+        new CadastrarUsuario().setVisible(true);
     }//GEN-LAST:event_menCadUserActionPerformed
+
+    private void menLisMotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menLisMotoActionPerformed
+        new ListarMotos().setVisible(true);
+    }//GEN-LAST:event_menLisMotoActionPerformed
+
+    private void menLisUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menLisUsuarioActionPerformed
+        new ListarUsuario().setVisible(true);
+    }//GEN-LAST:event_menLisUsuarioActionPerformed
+
+    private void menLisClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menLisClienteActionPerformed
+        new ListarClientes().setVisible(true);
+    }//GEN-LAST:event_menLisClienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -252,6 +279,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem menCadCli;
     private javax.swing.JMenuItem menCadMoto;
     private javax.swing.JMenuItem menCadUser;
+    private javax.swing.JMenu menLis;
+    private javax.swing.JMenuItem menLisCliente;
+    private javax.swing.JMenuItem menLisMoto;
+    private javax.swing.JMenuItem menLisUsuario;
     private javax.swing.JMenu menOpc;
     private javax.swing.JMenu menRel;
     private javax.swing.JMenuItem menRelMensal;
